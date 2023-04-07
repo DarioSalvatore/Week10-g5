@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+#sfondo {
+  background: rgb(40, 30, 208);
+  background: radial-gradient(
+    circle,
+    rgba(40, 30, 208, 1) 0%,
+    rgba(6, 111, 189, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  padding: "40px";
+}
+
+#loto {
+  width: 80%;
+  position: relative;
+  left: 10%;
+  right: 25%;
+  object-position: center;
+  object-fit: cover;
+  opacity: 95%;
+}
+
+.hero {
+  right: 50%;
+  left: 50%;
+  top: 20%;
+}
+
+.hero h3,
+p {
+  font-size: xx-large;
+}
+
+.search {
+  right: 5%;
+  top: 20px;
+}

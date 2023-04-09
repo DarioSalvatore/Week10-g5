@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
 const MyHome = () => {
+  const [found, setFound] = useState([]);
   const [content, setContent] = useState("");
   const handlechange = (e) => {
     setContent(e.target.value);
@@ -13,7 +14,10 @@ const MyHome = () => {
 
   useEffect(() => {
     fetchWeather();
+    secondFetch();
   }, [content]);
+
+  const key = "875cdbaea720a7925be5d0c4d470a196";
 
   const fetchWeather = async () => {
     try {
@@ -21,17 +25,42 @@ const MyHome = () => {
       const firstOne =
         "http://api.openweathermap.org/geo/1.0/direct?q=" + luogo + "&appid=";
 
-      const key = "875cdbaea720a7925be5d0c4d470a196";
       const resp = await fetch(firstOne + key);
       console.log(resp);
       if (resp.ok) {
         const data = await resp.json();
         console.log(data);
+        setFound(data);
+        console.log(found + "trovato");
 
         console.log("chimata andata a buon fine!");
       }
     } catch (err) {
       console.log("qualcosa non va!");
+    }
+  };
+  const lat = [];
+  const long = [];
+  found.map((item) => (lat.push(item.lat), long.push(item.lon)));
+  console.log("lat ottenuta", lat);
+  console.log("long trovata", long);
+
+  const secondFetch = async () => {
+    try {
+      const secondOne =
+        "https://api.openweathermap.org/data/2.5/weather?lat=" +
+        lat +
+        "&lon=" +
+        long +
+        "&appid=";
+      const resp1 = await fetch(secondOne + key);
+      console.log(resp1);
+      if (resp1.ok) {
+        const data1 = await resp1.json();
+        console.log(data1);
+      }
+    } catch (error) {
+      console.log("non è andato a buon fine!");
     }
   };
 

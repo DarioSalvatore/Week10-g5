@@ -45,7 +45,6 @@
     rgba(6, 111, 189, 1) 35%,
     rgba(0, 212, 255, 1) 100%
   );
-  padding: "40px";
 }
 
 #loto {
@@ -55,7 +54,15 @@
   right: 25%;
   object-position: center;
   object-fit: cover;
-  opacity: 95%;
+  -webkit-filter: blur(5px);
+}
+
+.logo {
+  display: flex;
+  position: absolute;
+  left: 15%;
+  right: 90%;
+  top: 3%;
 }
 
 .hero {
@@ -67,9 +74,32 @@
 .hero h3,
 p {
   font-size: xx-large;
+  margin-bottom: 0;
 }
 
 .search {
   right: 5%;
   top: 20px;
+}
+
+.nextDayBackground {
+  background-color: rgba(255, 255, 255, 0.282);
+  align-items: center;
+}
+
+.nextDayBackground p {
+  font-size: medium;
+}
+
+.daySection {
+  display: flex;
+  position: absolute;
+  bottom: 12.5%;
+  left: 22%;
+  right: 50%;
+}
+
+.daySection div {
+  padding-left: 15px;
+  padding-right: 15px;
 }

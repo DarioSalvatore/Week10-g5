@@ -2,6 +2,7 @@ import image from "../Images/fiore-di-loto-.jpg";
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import logo from "../Images/logo.png";
 
 const MyHome = () => {
   const [found, setFound] = useState([]);
@@ -83,12 +84,14 @@ const MyHome = () => {
       console.log("hai fallito!");
     }
   };
+
   console.log("hai trovato", prediction);
   return (
     <div id="sfondo">
       <div className="d-flex position-relative">
         <img id="loto" src={image} alt="Sfondo-loto" />
         <div className="logo">
+          <img src={logo} alt="page-logo" width={100} height={50} />
           <h1>Weather_Lotus</h1>
         </div>
         <div className="position-relative search">
